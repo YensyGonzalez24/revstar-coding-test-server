@@ -1,0 +1,43 @@
+{
+  "name": "gqlserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.ts",
+    "migrations": "npx prisma migrate dev --name 'init' --preview-feature && npm run generate-prisma-client",
+    "generate-prisma-client": "npx prisma generate",
+    "user-generation": "node scripts/userGeneration.mjs",
+    "deploy-config": "npm install && npm run migrations && npm run user-generation"
+  },
+  "author": "Yensy Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.5.0",
+    "@graphql-tools/schema": "^9.0.17",
+    "@prisma/client": "^4.11.0",
+    "apollo-server": "^3.12.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql-subscriptions": "^2.0.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-ws": "^5.12.0",
+    "mysql": "^2.18.1",
+    "nexus": "^1.3.0",
+    "nexus-prisma": "^1.0.4",
+    "nodemon": "^2.0.21",
+    "prisma": "^4.11.0",
+    "ts-node": "^10.9.1",
+    "uuid": "^9.0.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/ws": "^8.5.4",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
